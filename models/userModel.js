@@ -1,20 +1,9 @@
 const mongoose = require('mongoose')
 
 const userSchema = new mongoose.Schema({
-    firstName: {
+    fullName: {
         type: String,
         required: true,
-
-    },
-    lastName: {
-        type: String,
-        required: true
-    },
-    phoneNumber: {
-        type: String,
-        required: true,
-        min: 11,
-        max: 11,
     },
     password: {
         type: String,
@@ -31,11 +20,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         unique: true,
     },
-    status:{
-        type: String,
-        enum: ['Pending', 'Active'],
-        default: 'Pending'
-    },
+   
     email: {
         type: String,
         required: true,
@@ -49,15 +34,7 @@ const userSchema = new mongoose.Schema({
             message: 'Invalid email address',
         }
     },
-    address: {
-        type: String,
-        required: true
-    },
-    // Fields for Google authentication
-    googleId: {
-        type: String,
-        unique: true
-    },
+   
     displayName: {
         type: String
     },

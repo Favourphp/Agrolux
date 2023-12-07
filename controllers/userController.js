@@ -28,11 +28,7 @@ const registerController = async (req, res) => {
         message: "User already exists",
       });
     }
-    if (password !== password2) {
-      return res.status(400).json({
-        message: "the passwords do not match",
-      });
-    }
+    
     //Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
