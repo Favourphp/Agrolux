@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 
 const authRoute = require("./routes/userRoute");
-
+const weatherRoute = require('./routes/weatherRoute');
 //call the database
 require("./config/db");
 
@@ -34,6 +34,7 @@ app.use(
 // endpoint for the user registration and login
 app.use("/api/user", authRoute);
 
+app.use(weatherRoute);
 
 
 
