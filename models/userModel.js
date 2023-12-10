@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         unique: true,
     },
+    status: {
+        type: String,
+        default: "Pending", // Set an initial status value
+      },
    
     email: {
         type: String,

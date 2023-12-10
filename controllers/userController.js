@@ -41,6 +41,7 @@ const registerController = async (req, res) => {
       email,
       password: hashedPassword,
       confirmationCode: confirmationCode,
+      status: "pending",
     });
     // console.log(user._id.toString());
     const userID = user._id.toString();
@@ -139,7 +140,7 @@ const loginController = async (req, res) => {
       );
 
       return res.status(200).json({
-        message: "Welcome to your EventTrak",
+        message: "Welcome to Agrolux",
         token: token, //3456, // TODO GENERATE A TOKEN - DONE
         user: foundUser,
       });
