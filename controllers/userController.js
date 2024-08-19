@@ -139,12 +139,19 @@ const loginController = async (req, res) => {
         }
       );
 
-      return res.status(200).json({
-        message: "Welcome to Agrolux",
-        token: token, //3456, // TODO GENERATE A TOKEN - DONE
-        user: foundUser,
-      });
-    }
+     // Extract the first name from the fullName
+     const firstName = foundUser.fullName.split(' ')[0];
+
+     return res.status(200).json({
+       message: "Welcome to Agrolux",
+       token: token,
+       user: {
+         id: foundUser._id,
+         email: foundUser.email,
+         firstName: firstName, // Include the first name
+       },
+     });
+   }
   } catch (error) {
     return res.status(500).json({
       message: "Error While Trying To Login, Try Again",
